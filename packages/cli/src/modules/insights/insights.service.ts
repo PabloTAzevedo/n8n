@@ -18,7 +18,6 @@ import { InsightsRaw } from '@/modules/insights/entities/insights-raw';
 import type { TypeUnit } from './entities/insights-shared';
 import { NumberToType } from './entities/insights-shared';
 import { InsightsConfig } from './insights.config';
-import type { InsightByWorkflowSortBy } from './repositories/insights-by-period.repository';
 import { InsightsByPeriodRepository } from './repositories/insights-by-period.repository';
 import { InsightsRawRepository } from './repositories/insights-raw.repository';
 
@@ -284,7 +283,7 @@ export class InsightsService {
 		nbDays: number;
 		skip?: number;
 		take?: number;
-		sortBy?: InsightByWorkflowSortBy;
+		sortBy?: string;
 	}) {
 		const { count, rows } = await this.insightsByPeriodRepository.getInsightsByWorkflow({
 			nbDays,
